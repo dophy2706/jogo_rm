@@ -1,4 +1,4 @@
-class Caja {
+class Enemigo {
 
     constructor(x, y, w, h, color) {
 
@@ -7,7 +7,6 @@ class Caja {
         this.w = w;
         this.h = h;
         this.color = color;
-
     }
 
     dibujo(context) {
@@ -17,5 +16,14 @@ class Caja {
         context.fill();
         context.stroke();
         context.closePath();
+    }
+
+    mover_abajo(width, height) {
+        this.y ++;
+        if(this.y > height) {
+            console.log(this.y);
+            this.y = 0;
+            this.x = Math.random() * (width);
+        }
     }
 }
