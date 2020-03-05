@@ -1,39 +1,37 @@
 class Bala {
-    constructor(x, y, r, a, c_f, c_b) {
+
+    constructor(x, y, w, h, color) {
         this.x = x;
         this.y = y;
-        this.r = r;
-        this.a = a;
-        this.c_f = c_f;
-        this.c_b = c_b;
+        this.w = w;
+        this.h = h;
+        this.color = color;
+
     }
 
     dibujo(context) {
+
         context.beginPath();
-        context.fillStyle = this.c_f;
-        context.strokeStyle = this.c_b;
-        context.arc(this.x, this.y, this.r, this.a, 2 * Math.PI);
+        context.fillStyle = this.color;
+        context.rect(this.x, this.y, this.w, this.h);
         context.fill();
         context.stroke();
         context.closePath();
     }
 
-    disparar(width, height ){
+    disparar(width, height) {
+
         this.x = width;
-        
-        
-            
-            console.log(this.y);
-           for (let index = 0; index < 70; index++) {
+        //this.y -=10;
+
+        for (let index = 0; index < 20; index++) {
+            //console.log("y de la bala: " + this.y);
             this.y--;
-           }
-            
-            if(this.y < 0){
-                this.x = width;
-                console.log(this.y);
-                this.y = Math.random()*height;    
-                
-            }
-          
+        }
+
+        if (this.y < 0) {
+            this.y = height;
+            this.x = width;
+        }
     }
 }

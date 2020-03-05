@@ -10,6 +10,7 @@ class Enemigo {
     }
 
     dibujo(context) {
+
         context.beginPath();
         context.fillStyle = this.color;
         context.rect(this.x, this.y, this.w, this.h);
@@ -19,11 +20,18 @@ class Enemigo {
     }
 
     mover_abajo(width, height) {
-        this.y ++;
-        if(this.y > height) {
-            console.log(this.y);
+
+        this.y++;
+
+        if (this.y > height) {
             this.y = 0;
             this.x = Math.random() * (width);
         }
+    }
+
+    matar(width, height) {
+
+        this.y = 0;
+        this.x = Math.random() * (width);
     }
 }
